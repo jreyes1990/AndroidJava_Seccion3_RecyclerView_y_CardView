@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     mAdapter = new MyAdapter(movies, R.layout.recycler_view_item, new MyAdapter.OnItemClickListener() {
       @Override
       public void onItemClick(Movie movie, int position) {
-        //deleteName(position);
+        removeMovie(position);
         // Toast.makeText(MainActivity.this, name+" - "+position, Toast.LENGTH_SHORT).show();
       }
     });
@@ -66,24 +66,27 @@ public class MainActivity extends AppCompatActivity {
   public boolean onOptionsItemSelected(@NonNull MenuItem item) {
     switch (item.getItemId()){
       case R.id.add_name:
-        //this.addName(0);
+        this.addMovie(0);
         return true;
       default:
         return super.onOptionsItemSelected(item);
     }
   }
-/*
-  private void addName(int position){
-    names.add(position, "New Name "+(++counter));
+
+  private void addMovie(int position){
+    movies.add(position, new Movie("New Image "+(++counter), R.drawable.newmovie));
+    // Notificamos de un nuevo item insertado en nuestra coleccion
     mAdapter.notifyItemInserted(position);
+    // Hacemos scroll hacia la posicion donde el nuevo elemento se aloja
     mLayoutManager.scrollToPosition(position);
   }
 
-  private void deleteName(int position){
-    names.remove(position);
+  private void removeMovie(int position){
+    movies.remove(position);
+    // Notificamos de un nuevo item borrado en nuestra coleccion
     mAdapter.notifyItemRemoved(position);
   }
-*/
+
   private List<Movie> getAllMovies(){
     return new ArrayList<Movie>(){
       {
