@@ -49,11 +49,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
       /*  Recive la view completa. La pasa al constructor padre y enlazamos referencias UI
           con nuestras propiedades ViewHolder declaramos justo arriba */
       super(itemView);
-      this.textViewName = (TextView) itemView.findViewById(R.id.textViewName);
+      this.textViewName = (TextView) itemView.findViewById(R.id.textViewTitle);
+      this.imageViewPoster = (ImageView) itemView.findViewById(R.id.imageViewPoster);
     }
 
     public void bind(final Movie movie, final OnItemClickListener listener){
       //this.textViewName.setText(movie);
+      // Procesamos los datos a renderizar
+      this.textViewName.setText(movie.getName());
+      this.imageViewPoster.setImageResource(movie.getPoster());
 
       /* Definimos que por cada elemento de nuestro recycler view, tenemos un click listener
          que se comporta de la siguiente manera */
