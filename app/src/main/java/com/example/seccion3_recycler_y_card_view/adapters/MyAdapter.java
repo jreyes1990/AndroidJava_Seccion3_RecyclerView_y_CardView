@@ -1,6 +1,5 @@
-package com.example.seccion3_recycler_y_card_view;
+package com.example.seccion3_recycler_y_card_view.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.seccion3_recycler_y_card_view.models.Movie;
+import com.example.seccion3_recycler_y_card_view.R;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.util.List;
 

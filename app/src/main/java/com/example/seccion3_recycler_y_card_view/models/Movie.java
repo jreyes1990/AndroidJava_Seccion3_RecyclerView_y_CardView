@@ -1,4 +1,4 @@
-package com.example.seccion3_recycler_y_card_view;
+package com.example.seccion3_recycler_y_card_view.models;
 
 public class Movie {
   public String name;

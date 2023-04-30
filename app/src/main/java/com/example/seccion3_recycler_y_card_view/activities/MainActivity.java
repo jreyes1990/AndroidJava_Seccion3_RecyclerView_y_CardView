@@ -1,4 +1,4 @@
-package com.example.seccion3_recycler_y_card_view;
+package com.example.seccion3_recycler_y_card_view.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.seccion3_recycler_y_card_view.models.Movie;
+import com.example.seccion3_recycler_y_card_view.R;
+import com.example.seccion3_recycler_y_card_view.adapters.MyAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
