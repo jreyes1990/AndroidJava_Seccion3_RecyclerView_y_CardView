@@ -1,5 +1,6 @@
 package com.example.seccion3_recycler_y_card_view;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.List;
 
@@ -24,8 +28,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
   @NonNull
   @Override
-  public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-    View v = LayoutInflater.from(viewGroup.getContext()).inflate(layout, viewGroup, false);
+  public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+    View v = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
     ViewHolder vh = new ViewHolder(v);
 
     return vh;
@@ -41,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     return movies.size();
   }
 
-  public static class ViewHolder extends RecyclerView.ViewHolder {
+  public class ViewHolder extends RecyclerView.ViewHolder {
     public TextView textViewName;
     public ImageView imageViewPoster;
 
@@ -57,7 +61,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
       //this.textViewName.setText(movie);
       // Procesamos los datos a renderizar
       this.textViewName.setText(movie.getName());
-      this.imageViewPoster.setImageResource(movie.getPoster());
+      Picasso.get().load(movie.getPoster()).fit().into(this.imageViewPoster);
+      //this.imageViewPoster.setImageResource(movie.getPoster());
 
       /* Definimos que por cada elemento de nuestro recycler view, tenemos un click listener
          que se comporta de la siguiente manera */
